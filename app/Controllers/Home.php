@@ -11,9 +11,11 @@ class Home extends BaseController
         $objetoInstancia = new ModelSelect();
         // Del objeto saco la funcion que rescata datos del SP
         $datos = $objetoInstancia->FuncionSelectUsuario();
+        $datos1 = $objetoInstancia->FuncionSelectPoductos();
         // Almaceno esos datos en vector llave-valor para enviarlos a la vista
         $datosenviadosavista = [
             "DatosVista"=> $datos,
+            "DatosVista1"=> $datos1
         ];
         // Retorno vista con los datos
         return view("ViewSelect", $datosenviadosavista);

@@ -13,26 +13,50 @@
 </head>
 
 <body>
-    <table class="table table-bordered" style="width: 50%;">
-        <tr>
-            <td>ID</td>
-            <td>NOMBRE</td>
-            <td>CORREO</td>
-            <td>CONTRASEÑA</td>
-            <td>CEDULA</td>
-            <td>ESTADO</td>
-        </tr>
-        <?php foreach ($DatosVista as $key): ?>
-            <tr>
-                <td> <?= $key['usu_id'] ?> </td>
-                <td> <?= $key['usu_nombre'] ?> </td>
-                <td> <?= $key['usu_correo'] ?> </td>
-                <td> <?= $key['usu_pass'] ?> </td>
-                <td> <?= $key['usu_cedula'] ?> </td>
-                <td> <?= $key['usu_estado'] ?> </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <div style="justify-content: center;">
+        <div style="width: 45%;">
+            <h4>Catálogo Usuarios</h4>
+            <table class="table table-bordered" style="width: 50%; display: flex;">
+                <tr>
+                    <td>ID</td>
+                    <td>NOMBRE</td>
+                    <td>CORREO</td>
+                    <td>CONTRASEÑA</td>
+                    <td>CEDULA</td>
+                    <td>ESTADO</td>
+                </tr>
+                <?php foreach ($DatosVista as $key): ?>
+                    <tr>
+                        <td> <?= $key['usu_id'] ?> </td>
+                        <td> <?= $key['usu_nombre'] ?> </td>
+                        <td> <?= $key['usu_correo'] ?> </td>
+                        <td> <?= $key['usu_pass'] ?> </td>
+                        <td> <?= $key['usu_cedula'] ?> </td>
+                        <td> <?= $key['usu_estado'] ?> </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+        <div style="width: 45%;">
+            <h4>Catálogo Productos</h4>
+            <table class="table table-bordered" style="width: 50%; display: flex;">
+                <tr>
+                    <td>ID</td>
+                    <td>NOMBRE</td>
+                    <td>COSTO</td>
+                    <td>ESTADO</td>
+                </tr>
+                <?php foreach ($DatosVista1 as $key): ?>
+                    <tr>
+                        <td> <?= $key['ID'] ?> </td>
+                        <td> <?= $key['NOMBRE'] ?> </td>
+                        <td> <?= $key['COSTO'] ?> </td>
+                        <td> <?= $key['ESTADO'] ?> </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>
