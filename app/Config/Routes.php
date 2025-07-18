@@ -16,3 +16,12 @@ $routes->get('/VistasCss/(:num)', 'ControladorCss::index/$1');
 $routes->get('/test', 'Home::MetodoTestear');
 // Crear una ruta para ver el select
 $routes->get('/Select', 'Home::ControladorSelectUsuarioFuncion');
+/* 
+Primera ruta es get y Esta es la ruta para mostrar el formulario del Insert
+Segunda ruta es post y es para recopilar y enviar los datos a la base
+*/
+$routes->get('/Insert', 'Home::indexInsert');
+$routes->post('/Crear','Home::insertUsuario');
+// Ruta para eliminar usuario
+$routes->get('/eliminar/(:any)', 
+'Home::eliminarUsuario/$1');

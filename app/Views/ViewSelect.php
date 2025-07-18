@@ -13,6 +13,15 @@
 </head>
 
 <body>
+
+    <?php if (session()->getFlashdata('mensaje')) { ?>
+        <script>
+            alert(<?= json_encode(session()->getFlashdata('mensaje')) ?>)
+        </script>
+    <?php } ?>
+
+
+
     <div style="justify-content: center;">
         <div style="width: 45%;">
             <h4>Catálogo Usuarios</h4>
@@ -24,6 +33,8 @@
                     <td>CONTRASEÑA</td>
                     <td>CEDULA</td>
                     <td>ESTADO</td>
+                    <td>Accion Editar</td>
+                    <td>Accion Eliminar</td>
                 </tr>
                 <?php foreach ($DatosVista as $key): ?>
                     <tr>
@@ -33,6 +44,12 @@
                         <td> <?= $key['usu_pass'] ?> </td>
                         <td> <?= $key['usu_cedula'] ?> </td>
                         <td> <?= $key['usu_estado'] ?> </td>
+                        <td>
+                            <a href="">EDITAR</a>
+                        </td>
+                        <td>
+                             <a href="<?= base_url().'eliminar/'.$key['usu_id']?>">Eliminar</a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
