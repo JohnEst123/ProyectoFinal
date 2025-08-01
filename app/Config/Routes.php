@@ -38,4 +38,8 @@ $routes->get('/Select1', 'Home::ControladorSelectUsuarioFuncionAct');
 $routes->group('api', function ($routes) {
     //http://localhost/project1/api/usuarios
     $routes->get('usuarios', 'API\Api::ApiSelectControlador');
+    //http://localhost/project1/api/crearusuario
+    $routes->post('crearusuario','API\Api::crear');
+    //http://localhost/project1/api/eliminarusuario/$1
+    $routes->delete('eliminarusuario/(:num)','API\Api::eliminar/$1');
 });
