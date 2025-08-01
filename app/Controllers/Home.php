@@ -24,7 +24,6 @@ class Home extends BaseController
         return view("ViewSelect", $datosenviadosavista);
     }
 
-
     public function MetodoTestear()
     {
         $db = \Config\Database::connect();
@@ -80,7 +79,7 @@ class Home extends BaseController
         return redirect()->to(base_url('/Select'));
     }
 
-        public function eliminarUsuario($id)
+    public function eliminarUsuario($id)
     {
         $instancia = new ModelDelete();
         if ($instancia->FuncionEliminarUsuario($id)) {
@@ -89,6 +88,20 @@ class Home extends BaseController
             session()->setFlashdata('mensaje', ':"( Eliminación Fallida 👎');
         }
         return redirect()->to(base_url('/Select'));
+    }
+
+    public function ControladorSelectUsuarioFuncionAct()
+    {
+        // Instancia crear
+        $objetoInstancia = new ModelSelect();
+        // Del objeto saco la funcion que rescata datos del SP
+        $datos = $objetoInstancia->FuncionSelectUsuarioAct();
+        // Almaceno esos datos en vector llave-valor para enviarlos a la vista
+        $datosenviadosavista = [
+            "DatosVista" => $datos,
+        ];
+        // Retorno vista con los datos
+        return view("ViewSelectAct", $datosenviadosavista);
     }
 
 }
